@@ -41,6 +41,7 @@
     </nav>*@
 
     <nav class="navbar navbar-default">
+        @*GET THIS INTO THE COLLAPSE ZONE*@
         @await Html.PartialAsync("_LoginPartial")
 
         <div class="container-fluid">
@@ -81,128 +82,130 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
+    <div class="body-content">
+        <div class="container">
+            @RenderBody()
+            <hr />
 
-        <div class="footer container">
-            <footer>
-                <div class="footer-newsletter text-center">
-                    <div class="newsletter-form">
-                        <form action="">
-                            <label for="email">Get helpful tips and info from our newsletter</label>
-                            <input type="text" placeholder="your email address">
-                        </form>
+            <div class="footer container">
+                <footer>
+                    <div class="footer-newsletter text-center">
+                        <div class="newsletter-form">
+                            <form action="">
+                                <label for="email">Get helpful tips and info from our newsletter</label>
+                                <input type="text" placeholder="your email address">
+                            </form>
+                        </div>
+
                     </div>
 
-                </div>
+                    <div class="footer-links">
+                        <div class="no-margin-right row text-center">
+                            <div class="col-xs-6 col-sm-2">
+                                <h4>COMPANY</h4>
+                                <ul class="foot-nav">
+                                    <li>
+                                        <a>About</a>
+                                    </li>
+                                    <li>
+                                        <a>Contact</a>
+                                    </li>
+                                    <li>
+                                        <a>Careers</a>
+                                    </li>
+                                    <li>
+                                        <a>Press</a>
+                                    </li>
+                                    <li>
+                                        <a>Affiliates</a>
+                                    </li>
+                                    <li>
+                                        <a>Blog</a>
+                                    </li>
+                                </ul>
+                            </div>
 
-                <div class="footer-links">
-                    <div class="foot-row row text-center">
-                        <div class="col-xs-6 col-sm-2">
-                            <h4>COMPANY</h4>
-                            <ul class="foot-nav">
-                                <li>
-                                    <a>About</a>
-                                </li>
-                                <li>
-                                    <a>Contact</a>
-                                </li>
-                                <li>
-                                    <a>Careers</a>
-                                </li>
-                                <li>
-                                    <a>Press</a>
-                                </li>
-                                <li>
-                                    <a>Affiliates</a>
-                                </li>
-                                <li>
-                                    <a>Blog</a>
-                                </li>
-                            </ul>
-                        </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <h4>SUPPORT</h4>
+                                <ul class="foot-nav">
+                                    <li>
+                                        <a>Order Status</a>
+                                    </li>
+                                    <li>
+                                        <a>Customer Care</a>
+                                    </li>
+                                    <li>
+                                        <a>Speak With an Attorney</a>
+                                    </li>
+                                    <li>
+                                        <a>Join Our Attorney Network</a>
+                                    </li>
+                                    <li>
+                                        <a>See all services</a>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        <div class="col-xs-6 col-sm-3">
-                            <h4>SUPPORT</h4>
-                            <ul class="foot-nav">
-                                <li>
-                                    <a>Order Status</a>
-                                </li>
-                                <li>
-                                    <a>Customer Care</a>
-                                </li>
-                                <li>
-                                    <a>Speak With an Attorney</a>
-                                </li>
-                                <li>
-                                    <a>Join Our Attorney Network</a>
-                                </li>
-                                <li>
-                                    <a>See all services</a>
-                                </li>
-                            </ul>
-                        </div>
+                            <div class="col-xs-12 col-sm-2">
+                                <h4>LEARN MORE</h4>
+                                <ul class="foot-nav">
+                                    <li>
+                                        <a>Knowledge Center</a>
+                                    </li>
+                                    <li>
+                                        <a>Legal Help Articles</a>
+                                    </li>
+                                    <li>
+                                        <a>Business Resources</a>
+                                    </li>
+                                    <li>
+                                        <a>Additional Resources</a>
+                                    </li>
+                                    <li>
+                                        <a>Legal Forms</a>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        <div class="col-xs-12 col-sm-2">
-                            <h4>LEARN MORE</h4>
-                            <ul class="foot-nav">
-                                <li>
-                                    <a>Knowledge Center</a>
-                                </li>
-                                <li>
-                                    <a>Legal Help Articles</a>
-                                </li>
-                                <li>
-                                    <a>Business Resources</a>
-                                </li>
-                                <li>
-                                    <a>Additional Resources</a>
-                                </li>
-                                <li>
-                                    <a>Legal Forms</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-5">
-                            <h1 class="foot-brand">BABYLAWYA</h1>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-info container">
-                    <div class="row foot-row">
-                        <div class="col-sm-6">
-                            <p>
-                                An offer of membership in our legal plan is not an endorsement or advertisement for any individual attorney.
-                            </p>
-
-                            <p>
-                                The legal plan is available in most states. © BabyLawya. All rights reserved. Disclaimer: Communications
-                                between you and BabyLawya are protected by our Privacy Policy but not by the attorney-client
-                                privilege or as work product.
-                            </p>
-
-                            <p>
-                                BabyLawya provides access to independent attorneys and self-help services at your specific direction.
-                                We are not a law firm or a substitute for an attorney or law firm. We cannot provide any kind
-                                of advice, explanation, opinion, or recommendation about possible legal rights, remedies, defenses,
-                                options, selection of forms or strategies. Your access to the website is subject to our Terms
-                                of Use.
-                            </p>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <div class="row">
-                                <div class="col-sm-4 logos"><p>LOGO</p></div>
-                                <div class="col-sm-4 logos"><p>LOGO</p></div>
-                                <div class="col-sm-4 logos"><p>LOGO</p></div>
+                            <div class="col-xs-12 col-sm-5">
+                                <h1 class="foot-brand">BABYLAWYA</h1>
                             </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+
+                    <div class="footer-info container">
+                        <div class="row no-margin-right">
+                            <div class="col-sm-6">
+                                <p>
+                                    An offer of membership in our legal plan is not an endorsement or advertisement for any individual attorney.
+                                </p>
+
+                                <p>
+                                    The legal plan is available in most states. © BabyLawya. All rights reserved. Disclaimer: Communications
+                                    between you and BabyLawya are protected by our Privacy Policy but not by the attorney-client
+                                    privilege or as work product.
+                                </p>
+
+                                <p>
+                                    BabyLawya provides access to independent attorneys and self-help services at your specific direction.
+                                    We are not a law firm or a substitute for an attorney or law firm. We cannot provide any kind
+                                    of advice, explanation, opinion, or recommendation about possible legal rights, remedies, defenses,
+                                    options, selection of forms or strategies. Your access to the website is subject to our Terms
+                                    of Use.
+                                </p>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-4 logos"><p>LOGO</p></div>
+                                    <div class="col-sm-4 logos"><p>LOGO</p></div>
+                                    <div class="col-sm-4 logos"><p>LOGO</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
         </div>
     </div>
 
