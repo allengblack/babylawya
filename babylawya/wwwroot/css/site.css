@@ -1,0 +1,95 @@
+﻿html {
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 2.074em;
+}
+
+h2 {
+    font-size: 1.728em;
+}
+
+h3 {
+    font-size: 1.44em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+hr {
+    margin: 0 auto;
+}
+
+.navbar.navbar-default {
+    background-color: #5a8cef;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
+    content: '|';
+}
+
+.navbar-brand {
+    position: relative;
+    top: -55px;
+}
+
+@media (max-width: 767px) /* Mobile */ {
+    .navbar-brand {
+        top: 0;
+    }
+}
+
+@media (max-width: 879px) {
+    .navbar-right {
+        font-size: 11px;
+    }
+}
+
+
+
+body {
+    /*padding-top: 50px;
+    padding-bottom: 20px;*/
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
