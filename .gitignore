@@ -291,4 +291,4 @@ __pycache__/
 bootstrap_exp/
 
 #psd
-babylaw.psd
+*.psd
