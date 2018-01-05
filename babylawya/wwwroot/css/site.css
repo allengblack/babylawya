@@ -51,14 +51,31 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
 }
 
 .body-content {
-    padding-top: 5%;
+    position:absolute;
+    left: 0;
+    right: 0;
+}
+
+.body-main {
     background-color: #5a8cef;
 }
 
+.body-sub {
+    padding-top: 2%;
+    background-color: #f1f6ff;
+    margin: 0 auto;
+}
+
+.steps-list {
+    margin: 0 auto;
+    width: 95%;
+}
+
 footer {
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
+    top: 0;
     width: 100%;
 }
 
@@ -79,6 +96,14 @@ footer {
     padding: .4em .7em;
 }
 
+.padding-top-5 {
+    padding-top: 5%;
+}
+
+.padding-bottom-5 {
+    padding-bottom: 5%;
+}
+
 .no-margin-right {
     margin-right: 0;
 }
@@ -92,6 +117,9 @@ footer {
     font-size: .75em;
 }
 
+.hide-xs {
+    display: none;
+}
 
 @media (max-width: 767px) /* Mobile */ {
     .navbar-brand {
@@ -104,8 +132,6 @@ footer {
         font-size: 11px;
     }
 }
-
-
 
 body {
     /*padding-top: 50px;
@@ -140,5 +166,9 @@ body {
     /* Hide captions */
     .carousel-caption {
         display: none;
+    }
+
+    .hide-xs {
+        display: block;
     }
 }
