@@ -288,7 +288,7 @@ __pycache__/
 *.xsd.cs
 
 #temp_files
-bootstrap_exp/
+babylawya_exp/
 
 #psd
 *.psd
