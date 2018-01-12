@@ -15,16 +15,37 @@ namespace babylawya.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult PersonalAndFamily()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Personal and Family.";
 
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult PropertyAndFinance()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Property and Finance.";
+
+            return View();
+        }
+
+        public IActionResult RunningBusiness()
+        {
+            ViewData["Message"] = "Running your Business.";
+
+            return View();
+        }
+
+        public IActionResult HowItWorks()
+        {
+            ViewData["Message"] = "How it Works.";
+
+            return View();
+        }
+
+        public IActionResult AskLawyer()
+        {
+            ViewData["Message"] = "How it Works.";
 
             return View();
         }
