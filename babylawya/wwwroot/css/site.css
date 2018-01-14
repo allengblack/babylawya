@@ -101,11 +101,37 @@ footer {
     padding: 0;
 }
 
-    .foot-nav > li > a {
-        position: relative;
-        display: block;
-        padding: .4em .7em;
-    }
+.foot-nav > li > a {
+    position: relative;
+    display: block;
+    padding: .4em .7em;
+}
+
+.card-list {
+    margin: 2% auto;
+    background-color: #fff;
+    height: 200px;
+    box-shadow: 0 2px 2px 0 #eee;
+}
+
+.card-list h3 {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 1.3em;
+}
+
+.card-list p {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 1em;
+    color: #899aa5;
+}
+
+.card-list img {
+    width: 20%;
+    margin: 0 auto;
+    padding: 3%;
+}
 
 .padding-top-5 {
     padding-top: 5%;
