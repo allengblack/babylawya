@@ -288,8 +288,5 @@ __pycache__/
 *.xsd.cs
 
 #temp_files
-babylawya_exp/**
-
-#psd
-*.psd
-ngrok.exe
+!/babylawya_exp
+/babylawya_exp/*
