@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+//using System.ComponentModel.DataAnnotations;
 
 namespace babylawya.Models.Entities
 {
@@ -8,15 +8,15 @@ namespace babylawya.Models.Entities
     {
         public Guid Id { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime EnrollmentDate { get; set; }
 
-        [StringLength(50)]
+        //[StringLength(50)]
         public string Title { get; set; }
 
         public string Path { get; set; }
 
-        public IEnumerable<string> Keywords { get; set; }
+        public ICollection<Keyword> Keywords { get; set; }
     }
 }

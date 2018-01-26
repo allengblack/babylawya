@@ -9,10 +9,13 @@ namespace babylawya.Data
         { }
 
         public DbSet<Document> Documents { get; set; }
+        public DbSet<Keyword> Keywords { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Document>().ToTable("DocumentsDB");
+            modelBuilder.Entity<Document>()
+                .ToTable("DocumentsDB");
+            //modelBuilder.Entity<Keyword>().ToTable("KeywordsDB");
         }
     }
 }
