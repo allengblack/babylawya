@@ -14,11 +14,12 @@ namespace babylawya.Models.AccountViewModels
         public string FirstName { get; set; }
 
         [Required]
-        [StringLength(50, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 2)]
+        [StringLength(50, ErrorMessage = "The phone number must be at least {2} and at max {1} characters long.", MinimumLength = 2)]
         [Display(Name = "Last name")]
         public string LastName { get; set; }
 
         [Required]
+        [StringLength(11, ErrorMessage = "The {0} must be at most {1} numbers.")]
         public string Phone { get; set; }
 
         [Required]
