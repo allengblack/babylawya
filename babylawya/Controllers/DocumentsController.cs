@@ -1,4 +1,5 @@
 ﻿using babylawya.Data;
+using babylawya.Models.DocumentViewModels;
 using babylawya.Models.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -22,21 +23,48 @@ namespace babylawya.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Upload(IFormFile file)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Upload(DocumentViewModel document)
         {
-            if (file == null || file.Length == 0)
-                return Content("file not selected");
-
-            var path = Path.Combine(
-                            Directory.GetCurrentDirectory(), "wwwroot/docs/",
-                            file.FileName );
-
-            using (var stream = new FileStream(path, FileMode.Create))
+            if (ModelState.IsValid)
             {
-                await file.CopyToAsync(stream);
-            }
+                var doc = new Document();
 
-            return RedirectToAction("Upload");
+                if (document.MyDocument == null || document.MyDocument.Length == 0)
+                    return Content("file not selected");
+
+                var path = Path.Combine(
+                                Directory.GetCurrentDirectory(), "wwwroot/docs/",
+                                document.MyDocument.FileName);
+
+                doc.Path = path;
+
+
+                doc.Id = Guid.NewGuid();
+                //var a = _context.Documents.Add(doc);
+
+                var keywords = document.Keywords.Split(" ").ToList();
+
+                keywords.ForEach(x => {
+                    var key = new Keyword { Name = x, Id  = Guid.NewGuid() };
+                    doc.Keywords.Add(key);
+                });
+                
+                _context.Documents.Add(doc);
+                _context.SaveChanges();
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await document.MyDocument.CopyToAsync(stream);
+                }
+
+                return RedirectToAction("Upload");
+            }
+            else
+            {
+                return Content("Error uploading document");
+            }
+            
         }
 
         [Authorize]

@@ -25,9 +25,10 @@ namespace babylawya
             //services.AddDbContext<ApplicationDbContext>(options =>
             //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            var sqlConnectionString = Configuration.GetConnectionString("MySQLConnection");
+            //var connectionString = Configuration.GetConnectionString("MySQLConnection");
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(sqlConnectionString));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()

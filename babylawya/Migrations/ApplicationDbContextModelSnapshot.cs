@@ -17,8 +17,8 @@ namespace babylawya.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
+                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("babylawya.Models.ApplicationUser", b =>
                 {
@@ -65,7 +65,8 @@ namespace babylawya.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex");
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -75,11 +76,9 @@ namespace babylawya.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("EnrollmentDate");
+                    b.Property<DateTime>("DateCreated");
 
                     b.Property<string>("Path");
-
-                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
@@ -91,7 +90,9 @@ namespace babylawya.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<Guid?>("DocumentId");
+                    b.Property<Guid>("DocumentId");
+
+                    b.Property<Guid?>("DocumentId1");
 
                     b.Property<string>("Name");
 
@@ -99,7 +100,9 @@ namespace babylawya.Migrations
 
                     b.HasIndex("DocumentId");
 
-                    b.ToTable("Keyword");
+                    b.HasIndex("DocumentId1");
+
+                    b.ToTable("Keywords");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -120,7 +123,8 @@ namespace babylawya.Migrations
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex");
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
                 });
@@ -213,7 +217,12 @@ namespace babylawya.Migrations
                 {
                     b.HasOne("babylawya.Models.Entities.Document")
                         .WithMany("Keywords")
-                        .HasForeignKey("DocumentId");
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("babylawya.Models.Entities.Document", "Document")
+                        .WithMany()
+                        .HasForeignKey("DocumentId1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

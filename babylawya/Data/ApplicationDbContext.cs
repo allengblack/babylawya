@@ -8,7 +8,7 @@ namespace babylawya.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Document> Documents { get; set; }
-        //public DbSet<Keyword> Keywords { get; set; }
+        public DbSet<Keyword> Keywords { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -22,7 +22,11 @@ namespace babylawya.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
-            builder.Entity<Document>();
+            builder.Entity<Document>()
+                .HasMany(c => c.Keywords)
+                .WithOne(x => x.Document)
+                .HasForeignKey(x => x.DocumentId)
+                .IsRequired();
         }
     }
 }

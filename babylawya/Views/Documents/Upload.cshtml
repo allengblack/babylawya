@@ -1,4 +1,4 @@
-﻿@*@model babylawya.Models.DocumentViewModels.DocumentViewModel;*@
+﻿@model babylawya.Models.DocumentViewModels.DocumentViewModel;
 
 @{
     ViewData["Title"] = "Create";
@@ -13,56 +13,28 @@
     <form asp-controller="Documents" asp-action="Upload" method="post"
           enctype="multipart/form-data">
 
-        <input type="file" name="file" />
+        @*<input type="file" name="file" />*@
+        <div class="form-group">
+            <label asp-for="@Model.Title"></label>
+            <input asp-for="@Model.Title" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Keywords">Enter keywords, separated by a comma</label>
+            <input asp-for="@Model.Keywords" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.MyDocument">Upload a document</label>
+            <input asp-for="@Model.MyDocument" />
+        </div>
+
         <button type="submit">Upload File</button>
     </form>
 
 </div>
 
-
-@*<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Upload" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
-                <label asp-for="EnrollmentDate" class="control-label"></label>
-                <input asp-for="EnrollmentDate" class="form-control" />
-                <span asp-validation-for="EnrollmentDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Path" class="control-label"></label>
-                <input asp-for="Path" class="form-control" />
-                <span asp-validation-for="Path" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-10">
-                    <p>Upload file: </p>
-                    <input type="file" name="file" />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-10">
-                    <input type="submit" value="Upload" />
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
-</div>*@
-
-<div>
+<div class="container padding-top-5">
     <a asp-action="Index">Back to List</a>
 </div>
 
