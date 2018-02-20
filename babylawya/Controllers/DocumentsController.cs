@@ -23,7 +23,7 @@ namespace babylawya.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Upload(DocumentViewModel document)
         {
             if (ModelState.IsValid)
@@ -38,18 +38,15 @@ namespace babylawya.Controllers
                                 document.MyDocument.FileName);
 
                 doc.Path = path;
-
-
                 doc.Id = Guid.NewGuid();
-                //var a = _context.Documents.Add(doc);
 
                 var keywords = document.Keywords.Split(" ").ToList();
 
                 keywords.ForEach(x => {
-                    var key = new Keyword { Name = x, Id  = Guid.NewGuid() };
+                    var key = new Keyword { Name = x, Id = Guid.NewGuid() };
                     doc.Keywords.Add(key);
                 });
-                
+
                 _context.Documents.Add(doc);
                 _context.SaveChanges();
 
@@ -64,7 +61,7 @@ namespace babylawya.Controllers
             {
                 return Content("Error uploading document");
             }
-            
+
         }
 
         [Authorize]
@@ -143,6 +140,56 @@ namespace babylawya.Controllers
             _context.Documents.Remove(document);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Search(string searchString)
+        {
+            if (ModelState.IsValid)
+            {
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    return Content("Invalide search array");
+                }
+
+                var searchArray = searchString.Split(" ");
+                List<Guid> results = new List<Guid>();
+                foreach (var searchItem in searchArray)
+                {
+                    var keywords = _context.Keywords.Where(x => x.Name == searchItem).Select(x => x.DocumentId).ToList();
+                    results.AddRange(keywords);
+                }
+
+                return RedirectToAction(nameof(DocumentsController.SearchResult), results);
+            }
+            else
+            {
+                return Content("Unable to find document matching keywords.");
+            }
+        }
+
+        public async Task<IActionResult> SearchResult(IList<Guid> documentIds)
+        {
+            //throw new NotImplementedException(); 
+            var docs = new List<Document>();
+            foreach (var docId in documentIds)
+            {
+                var doc = await _context.Documents.FirstAsync(x => x.Id == docId);
+                docs.Add(doc);
+            }
+            return RedirectToAction(nameof(DocumentsController.ListSearchResults), docs);
+        }
+
+        public IActionResult ListSearchResults(List<Document> documents)
+        {
+            //throw new NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                return View(documents);
+            }
+            else
+            {
+                return RedirectToAction(nameof(DocumentsController.Search));
+            }
         }
 
         private bool DocumentExists(Guid id)

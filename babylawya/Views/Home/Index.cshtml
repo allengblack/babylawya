@@ -1,4 +1,6 @@
-﻿@{
+﻿@using babylawya.Controllers;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -11,7 +13,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="SEARCH DOCUMENTS" style="padding: 0 10px;">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">SEARCH</button>
+                        <button class="btn btn-default" type="button" @Html.ActionLink("Search", "DocumentsController", new{@class="btn btn-info", @id="addressSearch"})</button>
                     </span>
                 </div><!-- /input-group -->
 

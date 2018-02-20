@@ -222,7 +222,7 @@ namespace babylawya.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.Phone  };
                 var result = await _userManager.CreateAsync(user, model.Password);
-                await _userManager.AddToRoleAsync(user, "Client");
+                //await _userManager.AddToRoleAsync(user, "Client");
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
