@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using static babylawya.Constants;
 
 namespace babylawya.Controllers
 {
@@ -28,19 +29,18 @@ namespace babylawya.Controllers
         {
             if (ModelState.IsValid)
             {
-                var doc = new Document();
-
                 if (document.MyDocument == null || document.MyDocument.Length == 0)
                     return Content("file not selected");
 
-                var path = Path.Combine(
-                                Directory.GetCurrentDirectory(), "wwwroot/docs/",
-                                document.MyDocument.FileName);
-
-                doc.Path = path;
-                doc.Id = Guid.NewGuid();
+                var path = Path.Combine(PATH, document.MyDocument.FileName);
 
                 var keywords = document.Keywords.Split(" ").ToList();
+
+                var doc = new Document()
+                {
+                    Id = Guid.NewGuid(),
+                    Path = document.MyDocument.FileName
+                };
 
                 keywords.ForEach(x => {
                     var key = new Keyword { Name = x, Id = Guid.NewGuid() };
@@ -61,7 +61,6 @@ namespace babylawya.Controllers
             {
                 return Content("Error uploading document");
             }
-
         }
 
         [Authorize]
@@ -70,9 +69,7 @@ namespace babylawya.Controllers
             if (filename == null)
                 return Content("filename not present");
 
-            var path = Path.Combine(
-                           Directory.GetCurrentDirectory(),
-                           "wwwroot", filename);
+            var path = Path.Combine(PATH, filename);
 
             var memory = new MemoryStream();
             using (var stream = new FileStream(path, FileMode.Open))
