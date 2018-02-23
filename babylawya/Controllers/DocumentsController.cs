@@ -139,7 +139,7 @@ namespace babylawya.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Search(string searchString)
+        public IActionResult Search(string searchString)
         {
             if (ModelState.IsValid)
             {
