@@ -16,7 +16,7 @@ namespace babylawya.Models.Entities
 
         public DateTime DateCreated { get; set; } = DateTime.Now;
 
-        public string Path { get; set; }
+        public string Name { get; set; }
 
         [NotMapped]
         public IFormFile MyDocument { get; set; }

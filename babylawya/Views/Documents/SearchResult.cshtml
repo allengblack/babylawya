@@ -1,0 +1,34 @@
+﻿@using babylawya.Controllers
+@using babylawya.Models.Entities
+@model List<Document>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <h2>Search Results</h2>
+    @if (Model != null)
+    {
+        foreach (var document in Model)
+        {
+            <div class="row">
+                <div class="col-xs-4">@document.Name</div>
+                <div class="col-xs-4">@document.DateCreated</div>
+                <div class="col-xs-4">
+                    @using (Html.BeginForm(nameof(DocumentsController.Download, "Documents")))
+                    {
+                        < button type = "button" name = "@document.Name" ></ button >
+                    }
+                    @Html.ActionLink("Download", ), "Documents", document.MyDocument.FileName)
+                </div>
+            </div>  
+        }
+    }
+    else
+    {
+        <h5>No documents matching your keywords were found. Please, try again with different parameters.</h5>
+    }
+
+</div>

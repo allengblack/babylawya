@@ -8,16 +8,16 @@
     <div class="padding-top-5 no-margin-right row">
         <div class="col-sm-7 text-center">
             <h1>LEGAL MATTERS MADE EASY</h1>
-
-            <div class="???">
+            
+            
+            @using (Html.BeginForm("Search", "Documents"))
+            {
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="SEARCH DOCUMENTS" style="padding: 0 10px;">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" @Html.ActionLink("Search", "DocumentsController", new{@class="btn btn-info", @id="addressSearch"})</button>
-                    </span>
+                    <input type="text" class="form-control" placeholder="SEARCH DOCUMENTS" name="searchString">
                 </div><!-- /input-group -->
+                <input type="submit" value="Search Documents" />
 
-            </div>
+            }
         </div>
 
         <div class="col-sm-5">

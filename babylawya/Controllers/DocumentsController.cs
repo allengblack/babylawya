@@ -33,11 +33,9 @@ namespace babylawya.Controllers
                 if (document.MyDocument == null || document.MyDocument.Length == 0)
                     return Content("file not selected");
 
-                var path = Path.Combine(
-                                Directory.GetCurrentDirectory(), "wwwroot/docs/",
-                                document.MyDocument.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/docs/", document.MyDocument.FileName);
 
-                doc.Path = path;
+                doc.Name = document.Name;
                 doc.Id = Guid.NewGuid();
 
                 var keywords = document.Keywords.Split(" ").ToList();
@@ -65,8 +63,10 @@ namespace babylawya.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> Download(string filename)
+        public async Task<IActionResult> Download([FromBody]Document document)
         {
+            var filename = document.MyDocument.FileName;
+
             if (filename == null)
                 return Content("filename not present");
 
@@ -139,27 +139,35 @@ namespace babylawya.Controllers
             var document = await _context.Documents.SingleOrDefaultAsync(m => m.Id == id);
             _context.Documents.Remove(document);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Search(string searchString)
+        public async Task<IActionResult> Search(string searchString)
         {
             if (ModelState.IsValid)
             {
-                if (!String.IsNullOrEmpty(searchString))
+                if (String.IsNullOrEmpty(searchString))
                 {
-                    return Content("Invalide search array");
+                    return Content("You have not entered a search string");
                 }
 
                 var searchArray = searchString.Split(" ");
                 List<Guid> results = new List<Guid>();
                 foreach (var searchItem in searchArray)
                 {
-                    var keywords = _context.Keywords.Where(x => x.Name == searchItem).Select(x => x.DocumentId).ToList();
+                    var keywords = _context.Keywords.Where(x => x.Name == searchItem).Select(x => x.DocumentId).Distinct().ToList();
+                    //keywords = _context.Keywords.W
                     results.AddRange(keywords);
                 }
 
-                return RedirectToAction(nameof(DocumentsController.SearchResult), results);
+                //var docs = new List<Document>();
+                //foreach (var docId in results)
+                //{
+                //    var doc = await _context.Documents.FirstAsync(x => x.Id == docId);
+                //    docs.Add(doc);
+                //}
+
+                return RedirectToAction("SearchResult", new {documentIds = results});
             }
             else
             {
@@ -167,30 +175,35 @@ namespace babylawya.Controllers
             }
         }
 
-        public async Task<IActionResult> SearchResult(IList<Guid> documentIds)
+        public IActionResult SearchResult(List<Guid> documentIds)
         {
             //throw new NotImplementedException(); 
             var docs = new List<Document>();
+
             foreach (var docId in documentIds)
             {
-                var doc = await _context.Documents.FirstAsync(x => x.Id == docId);
-                docs.Add(doc);
+                var query = (from d in _context.Documents
+                            where d.Id == docId
+                            select d).ToList()[0];
+
+                docs.Add(query);
             }
-            return RedirectToAction(nameof(DocumentsController.ListSearchResults), docs);
+            //return RedirectToAction(nameof(DocumentsController.ListSearchResults), docs);
+            return View(docs);
         }
 
-        public IActionResult ListSearchResults(List<Document> documents)
-        {
-            //throw new NotImplementedException();
-            if (ModelState.IsValid)
-            {
-                return View(documents);
-            }
-            else
-            {
-                return RedirectToAction(nameof(DocumentsController.Search));
-            }
-        }
+        //public IActionResult ListSearchResults(List<Document> documents)
+        //{
+        //    //throw new NotImplementedException();
+        //    if (ModelState.IsValid)
+        //    {
+        //        return View(documents);
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction(nameof(DocumentsController.Search));
+        //    }
+        //}
 
         private bool DocumentExists(Guid id)
         {
