@@ -7,28 +7,27 @@
     Layout = "_Layout";
 }
 
-<div class="container">
+<div class="container" style="margin-bottom: 10%;">
     <h2>Search Results</h2>
     @if (Model != null)
     {
         foreach (var document in Model)
         {
             <div class="row">
-                <div class="col-xs-4">@document.Name</div>
-                <div class="col-xs-4">@document.DateCreated</div>
-                <div class="col-xs-4">
-                    @using (Html.BeginForm(nameof(DocumentsController.Download, "Documents")))
-                    {
-                        < button type = "button" name = "@document.Name" ></ button >
-                    }
-                    @Html.ActionLink("Download", ), "Documents", document.MyDocument.FileName)
-                </div>
-            </div>  
-        }
+                @using (Html.BeginForm("Download", "Documents"))
+                {
+                    <input type="hidden" name="filename" value="@document.Name"/>
+                    <div class="col-xs-4">@document.Name</div>
+                    <div class="col-xs-4">@document.DateCreated</div>
+                    <div class="col-xs-4">
+                        <button type="submit" name="@document.Name">Download</button>
+                    </div>
+                }
+            </div>
+         }
     }
     else
     {
         <h5>No documents matching your keywords were found. Please, try again with different parameters.</h5>
     }
-
 </div>

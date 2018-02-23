@@ -1,8 +1,6 @@
 ﻿using babylawya.Data;
 using babylawya.Models.DocumentViewModels;
 using babylawya.Models.Entities;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -39,13 +37,15 @@ namespace babylawya.Controllers
                 var doc = new Document()
                 {
                     Id = Guid.NewGuid(),
-                    Path = document.MyDocument.FileName
+                    Name = document.MyDocument.FileName
                 };
 
                 keywords.ForEach(x => {
                     var key = new Keyword { Name = x, Id = Guid.NewGuid() };
                     doc.Keywords.Add(key);
                 });
+
+                doc.Keywords = doc.Keywords.Distinct().ToList();
 
                 _context.Documents.Add(doc);
                 _context.SaveChanges();
@@ -57,16 +57,14 @@ namespace babylawya.Controllers
 
                 return RedirectToAction("Upload");
             }
-            else
-            {
                 return Content("Error uploading document");
-            }
         }
 
-        [Authorize]
-        public async Task<IActionResult> Download([FromBody]Document document)
+        [HttpPost]
+        //[Authorize]
+        public async Task<IActionResult> Download(string filename)
         {
-            var filename = document.MyDocument.FileName;
+            //var filename = document.MyDocument.FileName;
 
             if (filename == null)
                 return Content("filename not present");
@@ -158,14 +156,7 @@ namespace babylawya.Controllers
                     //keywords = _context.Keywords.W
                     results.AddRange(keywords);
                 }
-
-                //var docs = new List<Document>();
-                //foreach (var docId in results)
-                //{
-                //    var doc = await _context.Documents.FirstAsync(x => x.Id == docId);
-                //    docs.Add(doc);
-                //}
-
+                
                 return RedirectToAction("SearchResult", new {documentIds = results});
             }
             else
@@ -187,22 +178,8 @@ namespace babylawya.Controllers
 
                 docs.Add(query);
             }
-            //return RedirectToAction(nameof(DocumentsController.ListSearchResults), docs);
             return View(docs);
         }
-
-        //public IActionResult ListSearchResults(List<Document> documents)
-        //{
-        //    //throw new NotImplementedException();
-        //    if (ModelState.IsValid)
-        //    {
-        //        return View(documents);
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction(nameof(DocumentsController.Search));
-        //    }
-        //}
 
         private bool DocumentExists(Guid id)
         {
@@ -220,17 +197,17 @@ namespace babylawya.Controllers
         {
             return new Dictionary<string, string>
             {
-                //{".txt", "text/plain"},
+                {".txt", "text/plain"},
                 {".pdf", "application/pdf"},
                 {".doc", "application/vnd.ms-word"},
                 {".docx", "application/vnd.ms-word"},
-                //{".xls", "application/vnd.ms-excel"},
-                //{".xlsx", "application/vnd.openxmlformatsofficedocument.spreadsheetml.sheet"},
-                //{".png", "image/png"},
-                //{".jpg", "image/jpeg"},
-                //{".jpeg", "image/jpeg"},
-                //{".gif", "image/gif"},
-                //{".csv", "text/csv"}
+                {".xls", "application/vnd.ms-excel"},
+                {".xlsx", "application/vnd.openxmlformatsofficedocument.spreadsheetml.sheet"},
+                {".png", "image/png"},
+                {".jpg", "image/jpeg"},
+                {".jpeg", "image/jpeg"},
+                {".gif", "image/gif"},
+                {".csv", "text/csv"}
             };
         }
     }
