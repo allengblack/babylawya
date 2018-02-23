@@ -1,4 +1,5 @@
-﻿using babylawya.Data;
+﻿using System;
+using babylawya.Data;
 using babylawya.Models;
 using babylawya.Services;
 using Microsoft.AspNetCore.Builder;
@@ -23,13 +24,24 @@ namespace babylawya
         public void ConfigureServices(IServiceCollection services)
         {
             //var connectionString = Configuration.GetConnectionString("HomePC");
-            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            var connectionString = "";
 
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+            {
+                connectionString = Configuration.GetConnectionString("Azure");
+            }
+            else
+            {
+                connectionString = Configuration.GetConnectionString("DefaultConnection");
+            }
+            
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.BuildServiceProvider().GetService<ApplicationDbContext>().Database.Migrate();
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
