@@ -26,15 +26,8 @@ namespace babylawya
             //var connectionString = Configuration.GetConnectionString("HomePC");
             var connectionString = "";
 
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-            {
-                connectionString = Configuration.GetConnectionString("Azure");
-            }
-            else
-            {
-                connectionString = Configuration.GetConnectionString("DefaultConnection");
-            }
-            
+            connectionString = Configuration.GetConnectionString(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? "Azure" : "HomePC");
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()

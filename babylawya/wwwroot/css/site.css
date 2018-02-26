@@ -60,6 +60,10 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
     background-color: #5a8cef;
 }
 
+.body-main input[type=text] {
+    background-color: brown;
+}
+
 .body-sub {
     padding-top: 2%;
     background-color: #f1f6ff;
