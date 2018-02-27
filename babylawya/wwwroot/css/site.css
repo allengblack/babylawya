@@ -77,6 +77,7 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
     border-radius: 10px;
     background-color: #4575d7;
     border: none;
+    color: #fff;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
