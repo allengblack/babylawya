@@ -8,15 +8,16 @@
     <div class="padding-top-5 no-margin-right row">
         <div class="col-sm-7 text-center">
             <h1>LEGAL MATTERS MADE EASY</h1>
-            
-            
-            @using (Html.BeginForm("Search", "Documents"))
+
+            @using (Html.BeginForm("Search", "Documents", FormMethod.Post, new {@class = "form-inline"}))
             {
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="SEARCH DOCUMENTS" name="searchString">
-                </div><!-- /input-group -->
-                <input type="submit" value="Search" />
+                    <div class="row">
+                        <input type="text" class="search-box col-sm-8 col-xs-12" placeholder="SEARCH DOCUMENTS" name="searchString">
 
+                        <input type="submit" value="Search" class="search-btn col-sm-4 col-xs-12" />
+                    </div><!-- /input-group -->
+                </div>
             }
         </div>
 
@@ -111,7 +112,7 @@
             <div class="row">
                 <div class="col-sm-3 col-xs-6">
                     <div class="card-list">
-                        <img src="~/images/list/babylaw_01.jpg" alt="Alternate Text" class="img-responsive"/>
+                        <img src="~/images/list/babylaw_01.jpg" alt="Alternate Text" class="img-responsive" />
                         <h3>Tenancy Arrangement</h3>
                         <p>No fees necessary to create your account</p>
                     </div>
@@ -119,7 +120,7 @@
 
                 <div class="col-sm-3 col-xs-6">
                     <div class="card-list">
-                        <img src="~/images/list/babylaw_02.jpg" alt="Alternate Text" class="img-responsive"/>
+                        <img src="~/images/list/babylaw_02.jpg" alt="Alternate Text" class="img-responsive" />
                         <h3>Eviction Notice</h3>
                         <p>It takes only minutes to get Paystack plugged in</p>
                     </div>
@@ -129,7 +130,7 @@
 
                 <div class="col-sm-3 col-xs-6">
                     <div class="card-list">
-                        <img src="~/images/list/babylaw_03.jpg" alt="Alternate Text" class="img-responsive"/>
+                        <img src="~/images/list/babylaw_03.jpg" alt="Alternate Text" class="img-responsive" />
                         <h3>Power of Attorney</h3>
                         <p>PCI compliant with fraud management built-in</p>
                     </div>
@@ -137,7 +138,7 @@
 
                 <div class="col-sm-3 col-xs-6">
                     <div class="card-list">
-                        <img src="~/images/list/babylaw_04.jpg" alt="Alternate Text" class="img-responsive"/>
+                        <img src="~/images/list/babylaw_04.jpg" alt="Alternate Text" class="img-responsive" />
                         <h3>Revocation of Power of Attorney</h3>
                         <p>Convenient running of</p>
                     </div>
@@ -147,7 +148,7 @@
             <div class="row padding-top-5">
                 <div class="col-sm-3 col-xs-6">
                     <div class="card-list">
-                        <img src="~/images/list/babylaw_05.jpg" alt="Alternate Text" class="img-responsive"/>
+                        <img src="~/images/list/babylaw_05.jpg" alt="Alternate Text" class="img-responsive" />
                         <h3>Sales Agreement/Bill of Sale</h3>
                         <p>Your customers get the best payment experience</p>
                     </div>
@@ -155,7 +156,7 @@
 
                 <div class="col-sm-3 col-xs-6">
                     <div class="card-list">
-                        <img src="~/images/list/babylaw_06.jpg" alt="Alternate Text" class="img-responsive"/>
+                        <img src="~/images/list/babylaw_06.jpg" alt="Alternate Text" class="img-responsive" />
                         <h3>Loan Arrangement</h3>
                         <p>Send money to any Nigerian bank account</p>
                     </div>
@@ -163,7 +164,7 @@
 
                 <div class="col-sm-3 col-xs-6">
                     <div class="card-list">
-                        <img src="~/images/list/babylaw_07.jpg" alt="Alternate Text" class="img-responsive"/>
+                        <img src="~/images/list/babylaw_07.jpg" alt="Alternate Text" class="img-responsive" />
                         <h3>Promisory Note</h3>
                         <p>Automatic to any bank account the next day</p>
                     </div>
@@ -171,7 +172,7 @@
 
                 <div class="col-sm-3 col-xs-6">
                     <div class="card-list">
-                        <img src="~/images/list/babylaw_08.jpg" alt="Alternate Text" class="img-responsive"/>
+                        <img src="~/images/list/babylaw_08.jpg" alt="Alternate Text" class="img-responsive" />
                         <h3>Affidavit of Birth Certificate</h3>
                         <p>See your company data and...</p>
                     </div>
