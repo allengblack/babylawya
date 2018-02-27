@@ -22,16 +22,21 @@ hr {
     margin: 0 auto;
 }
 
+.main-header {
+    font-size: 5.5rem;
+    color: #fff;
+}
+
 .navbar {
     border: 0;
 }
 
-    .navbar.navbar-default {
-        background-color: #5a8cef;
-        border-radius: 0;
-        margin-bottom: 0;
-        border-bottom: 0;
-    }
+.navbar.navbar-default {
+    background-color: #5a8cef;
+    border-radius: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
@@ -61,21 +66,23 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
 }
 
 .search-box {
-    max-width: 60%;
-    margin: 5px auto;
-    margin-left: 50px;
+    margin: 50px auto 0;
+    margin-left: 100px;
     height: 50px;
     border-radius: 10px;
     background-color: #2e2d88;
-    box-shadow: none;
     border: none;
     color: #fff;
 }
 
 .search-btn {
     height: 50px;
-    margin: 5px auto;
-    max-width: 40%;
+    width: 20%;
+    margin: 50px auto 0;
+    margin-left: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: aqua;
 }
 
 .body-sub {
@@ -119,11 +126,11 @@ footer {
     padding: 0;
 }
 
-.foot-nav > li > a {
-    position: relative;
-    display: block;
-    padding: .4em .7em;
-}
+    .foot-nav > li > a {
+        position: relative;
+        display: block;
+        padding: .4em .7em;
+    }
 
 .card-list {
     margin: 2% auto;
@@ -132,24 +139,24 @@ footer {
     box-shadow: 0 2px 2px 0 #eee;
 }
 
-.card-list h3 {
-    width: 70%;
-    margin: 0 auto;
-    font-size: 1.3em;
-}
+    .card-list h3 {
+        width: 70%;
+        margin: 0 auto;
+        font-size: 1.3em;
+    }
 
-.card-list p {
-    width: 70%;
-    margin: 0 auto;
-    font-size: 1em;
-    color: #899aa5;
-}
+    .card-list p {
+        width: 70%;
+        margin: 0 auto;
+        font-size: 1em;
+        color: #899aa5;
+    }
 
-.card-list img {
-    width: 20%;
-    margin: 0 auto;
-    padding: 3%;
-}
+    .card-list img {
+        width: 20%;
+        margin: 0 auto;
+        padding: 3%;
+    }
 
 .padding-top-5 {
     padding-top: 5%;

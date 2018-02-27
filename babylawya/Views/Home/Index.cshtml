@@ -6,22 +6,22 @@
 
 <div class="body-main">
     <div class="padding-top-5 no-margin-right row">
-        <div class="col-sm-7 text-center">
-            <h1>LEGAL MATTERS MADE EASY</h1>
+        <div class="col-sm-7 col-xs-12 text-center">
+            <h1 class="main-header">LEGAL MATTERS MADE EASY</h1>
 
-            @using (Html.BeginForm("Search", "Documents", FormMethod.Post, new {@class = "form-inline"}))
+            @using (Html.BeginForm("Search", "Documents", FormMethod.Post, new {@class = "container, form-horizontal"}))
             {
-                <div class="input-group">
+                <div class="form-group">
                     <div class="row">
-                        <input type="text" class="search-box col-sm-8 col-xs-12" placeholder="SEARCH DOCUMENTS" name="searchString">
-
-                        <input type="submit" value="Search" class="search-btn col-sm-4 col-xs-12" />
+                        <input type="text" class="search-box col-xs-6" placeholder="SEARCH DOCUMENTS" name="searchString">
+                        <div class="col-xs-4"></div>
+                        <input type="submit" value="Search" class="search-btn col-xs-2"/>
                     </div><!-- /input-group -->
                 </div>
             }
         </div>
 
-        <div class="col-sm-5">
+        <div class="col-sm-5 col-xs-12">
             <img src="~/images/kone.jpg" alt="" class="img-responsive">
         </div>
     </div>
