@@ -103,10 +103,10 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
     text-align: center;
 }
 
-::placeholder { /* Most modern browsers support this now. */
-    color: #fff;
-    text-align: center;
-}
+/*::placeholder { /* Most modern browsers support this now. */
+    /*color: #fff;
+    text-align: center;*/
+/*}*/
 
 #search-box::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: #ccc;
@@ -130,15 +130,16 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
     color: #ccc;
 }
 
-#search-box::placeholder { /* Most modern browsers support this now. */
-    color: #ccc;
-}
+/*#search-box::*//*placeholder { Most modern browsers support this now. */
+    /*color: #ccc;
+}*/
 
 .search-btn {
     height: 50px;
     width: 20%;
     margin: 50px auto 0;
     margin-left: 20px;
+    -ms-border-radius: 10px;
     border-radius: 10px;
     border: none;
     background-color: #4575d7;
@@ -322,4 +323,8 @@ body {
     .search-box {
         margin-left: 70px;
     }
+}
+
+#wokem {
+    background-color: #5a8cef;
 }
