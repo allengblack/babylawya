@@ -25,6 +25,7 @@ hr {
 .main-header {
     font-size: 3.5rem;
     color: #fff;
+    font-family: 'Source Code Pro', monospace;
 }
 
 .navbar {
