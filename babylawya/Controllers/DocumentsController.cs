@@ -21,6 +21,12 @@ namespace babylawya.Controllers
             _context = context;
         }
 
+        // GET: Documents
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Documents.ToListAsync());
+        }
+
         [HttpPost]
         //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Upload(DocumentViewModel document)
@@ -55,7 +61,7 @@ namespace babylawya.Controllers
                     await document.MyDocument.CopyToAsync(stream);
                 }
 
-                return RedirectToAction("Upload");
+                return RedirectToAction("Index");
             }
                 return Content("Error uploading document");
         }
@@ -78,12 +84,6 @@ namespace babylawya.Controllers
             }
             memory.Position = 0;
             return File(memory, GetContentType(path), Path.GetFileName(path));
-        }
-
-        // GET: Documents
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Documents.ToListAsync());
         }
 
         // GET: Documents/Details/5
@@ -110,7 +110,7 @@ namespace babylawya.Controllers
             return View();
         }
 
-        // GET: Documents/Delete/5
+        [HttpGet]
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -120,23 +120,24 @@ namespace babylawya.Controllers
 
             var document = await _context.Documents
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (document == null)
-            {
-                return NotFound();
-            }
 
-            return View(document);
+            if (document != null)
+            {
+                return View(document);
+            }
+            return NotFound();
         }
 
-        // POST: Documents/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        // GET: Documents/Delete/5
+        [HttpGet]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var document = await _context.Documents.SingleOrDefaultAsync(m => m.Id == id);
             _context.Documents.Remove(document);
             await _context.SaveChangesAsync();
+
             return RedirectToAction("Index");
+
         }
 
         public IActionResult Search(string searchString)
@@ -153,33 +154,31 @@ namespace babylawya.Controllers
                 foreach (var searchItem in searchArray)
                 {
                     var keywords = _context.Keywords.Where(x => x.Name == searchItem).Select(x => x.DocumentId).Distinct().ToList();
-                    //keywords = _context.Keywords.W
+
                     results.AddRange(keywords);
                 }
                 
                 return RedirectToAction("SearchResult", new {documentIds = results});
             }
-            else
-            {
-                return Content("Unable to find document matching keywords.");
-            }
+            return Content("Unable to find document matching keywords.");
         }
 
         public IActionResult SearchResult(List<Guid> documentIds)
         {
-            //throw new NotImplementedException(); 
             var docs = new List<Document>();
 
             foreach (var docId in documentIds)
             {
                 var query = (from d in _context.Documents
                             where d.Id == docId
-                            select d).ToList()[0];
+                            select d).ToList().FirstOrDefault();
 
                 docs.Add(query);
             }
             return View(docs);
         }
+
+        #region PrivateMethods
 
         private bool DocumentExists(Guid id)
         {
@@ -210,5 +209,7 @@ namespace babylawya.Controllers
                 {".csv", "text/csv"}
             };
         }
+
+        #endregion
     }
 }
