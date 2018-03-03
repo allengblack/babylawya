@@ -1,4 +1,18 @@
-﻿html {
+﻿@font-face {
+    font-family: Code Bold Regular;
+    src: url(../fonts/code-bold.otf);
+}
+
+@font-face {
+    font-family: Corbel;
+    src: url(../fonts/corbel.ttf);
+}
+
+body {
+    font-family: 'Corbel', monospace;
+}
+
+html {
     font-size: 1em;
 }
 
@@ -23,9 +37,9 @@ hr {
 }
 
 .main-header {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     color: #fff;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Code Bold Regular', monospace;
 }
 
 .navbar {
@@ -105,7 +119,7 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
 }
 
 /*::placeholder { /* Most modern browsers support this now. */
-    /*color: #fff;
+/*color: #fff;
     text-align: center;*/
 /*}*/
 
@@ -132,7 +146,7 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
 }
 
 /*#search-box::*//*placeholder { Most modern browsers support this now. */
-    /*color: #ccc;
+/*color: #ccc;
 }*/
 
 .search-btn {
@@ -193,11 +207,11 @@ footer {
     padding: 0;
 }
 
-    .foot-nav > li > a {
-        position: relative;
-        display: block;
-        padding: .4em .7em;
-    }
+.foot-nav > li > a {
+    position: relative;
+    display: block;
+    padding: .4em .7em;
+}
 
 .card-list {
     margin: 2% auto;
@@ -206,24 +220,24 @@ footer {
     box-shadow: 0 2px 2px 0 #eee;
 }
 
-    .card-list h3 {
-        width: 70%;
-        margin: 0 auto;
-        font-size: 1.3em;
-    }
+.card-list h3 {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 1.3em;
+}
 
-    .card-list p {
-        width: 70%;
-        margin: 0 auto;
-        font-size: 1em;
-        color: #899aa5;
-    }
+.card-list p {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 1em;
+    color: #899aa5;
+}
 
-    .card-list img {
-        width: 20%;
-        margin: 0 auto;
-        padding: 3%;
-    }
+.card-list img {
+    width: 20%;
+    margin: 0 auto;
+    padding: 3%;
+}
 
 .padding-top-5 {
     padding-top: 5%;
@@ -258,6 +272,10 @@ footer {
     .navbar-brand {
         top: 0;
     }
+
+    .main-header {
+        font-size: 3rem;
+    }
 }
 
 @media (max-width: 879px) {
@@ -266,7 +284,7 @@ footer {
     }
 
     .main-header {
-        font-size: 2.8rem;
+        font-size: 3.8rem;
     }
 }
 
