@@ -50,16 +50,13 @@ hr {
     padding: 0;
 }
 
-    /*.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    padding: 0;
-}*/
-
-    .navbar.navbar-default {
-        background-color: #5a8cef;
-        border-radius: 0;
-        margin-bottom: 0;
-        border-bottom: 0;
-    }
+.navbar.navbar-default {
+    background-color: #5a8cef;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
@@ -69,6 +66,7 @@ hr {
     color: #fff;
 }
 
+/* ReSharper disable once CssBrowserCompatibility */
 nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
     content: '|';
 }
@@ -92,18 +90,54 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
     margin: 50px auto 0;
     margin-left: 100px;
     height: 50px;
+    -ms-border-radius: 10px;
     border-radius: 10px;
     background-color: #4575d7;
     border: none;
     color: #fff;
 }
 
+#speech {
+    max-height: 100%;
+    max-width: 100%;
+    border: 2px solid #fff;
+    margin: 0 auto;
+    animation: 2s linear 0s 1 grow;
+    font-size: 1.2rem;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.triangle {
+    margin-left: 65%;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #fff;
+    animation: 2s linear 0 1 showArrow;
+    padding-bottom: .3rem;
+}
+
+#speech p {
+    padding: .2rem;
+    margin: auto;
+    text-align: center;
+    width: 75%;
+}
+
+#kone {
+    animation: 2s linear 0s 1 shrink;
+    max-width: 75%;
+}
+
+/* ReSharper disable once CssBrowserCompatibility */
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: #fff;
     text-align: center;
 }
 
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color: #fff;
     opacity: 1;
     text-align: center;
@@ -124,11 +158,6 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
     color: #fff;
     text-align: center;
 }
-
-/*::placeholder { /* Most modern browsers support this now. */
-/*color: #fff;
-    text-align: center;*/
-/*}*/
 
 #search-box::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: #ccc;
@@ -152,9 +181,37 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
     color: #ccc;
 }
 
-/*#search-box::*/ /*placeholder { Most modern browsers support this now. */
-/*color: #ccc;
-}*/
+#news-box {
+    border-radius: 10px;
+    background-color: #6f9ffe;
+    padding: 10px;
+    border: 0;
+    margin: 0 2rem;
+}
+
+#newsletter {
+    padding: 1rem 0;
+}
+
+#news-box::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    font-style: italic;
+}
+
+#news-box:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-style: italic;
+}
+
+#news-box::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-style: italic;
+}
+
+#news-box::-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-style: italic;
+}
+
+#news-box::-ms-input-placeholder { /* Microsoft Edge */
+    font-style: italic;
+}
 
 .search-btn {
     height: 50px;
@@ -206,19 +263,26 @@ footer {
 .footer-newsletter {
     height: 45%;
     background-color: #3268e9;
-    color: #fff;
 }
 
 .foot-nav {
     list-style-type: none;
     padding: 0;
+    color: #fff;
 }
 
-    .foot-nav > li > a {
-        position: relative;
-        display: block;
-        padding: .4em .7em;
-    }
+.foot-nav > li > a {
+    position: relative;
+    display: block;
+    padding: .4em .7em;
+    color: #fff;
+}
+
+.foot-nav > li > a:hover {
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .card-list {
     margin: 2% auto;
@@ -266,10 +330,15 @@ footer {
 .foot-brand {
     padding-top: 3em;
     margin: 0 auto;
+    color: #fff;
 }
 
 .footer-info {
     font-size: .75em;
+}
+
+.footer-links {
+    background-color: #0c51ab;
 }
 
 .hide-xs {
@@ -296,17 +365,8 @@ footer {
     }
 }
 
-body {
-    /*padding-top: 50px;
-    padding-bottom: 20px;*/
-}
-
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    /*padding-left: 15px;
-    padding-right: 15px;*/
-}
 
 /* Carousel */
 .carousel-caption p {
@@ -344,7 +404,7 @@ body {
     }
 
     .row {
-        margin-right: 0px;
+        margin-right: 0;
     }
 
     .search-box {
@@ -352,6 +412,76 @@ body {
     }
 }
 
-#wokem {
-    background-color: #5a8cef;
+@keyframes grow {
+    0% {
+        height: 0;
+        width: 0;
+        font-size: .2rem;
+        color: transparent;
+    }
+
+    25% {
+        height: 25%;
+        width: 25%;
+        font-size: .4rem;
+        color: transparent;
+    }
+
+    50% {
+        height: 50%;
+        width: 50%;
+        font-size: .6rem;
+    }
+
+    75% {
+        height: 75%;
+        width: 75%;
+    }
+
+    100% {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@keyframes shrink {
+    0% {
+        max-width: 100%;
+    }
+
+    25% {
+        max-width: 95%;
+    }
+
+    50% {
+        max-width: 88%;
+    }
+
+    75% {
+        max-width: 81%;
+    }
+
+    100% {
+        max-width: 75%;
+    }    
+}
+
+@keyframes showArrow{
+    0% {
+        border: 0;
+    }
+    
+    /*25% {
+        display: none;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid #fff;
+    }*/
+
+    100% {
+        display: block;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid #fff;
+    }
 }
