@@ -99,28 +99,17 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
 
 #speech {
     max-height: 100%;
-    max-width: 100%;
+    width: 70%;
     border: 2px solid #fff;
-    margin: 0 auto;
-    animation: 2s linear 0s 1 grow;
+    margin: 0 auto 1em;
+    animation: 3s linear 0s 1 grow;
     font-size: 1.2rem;
     color: #fff;
     border-radius: 10px;
 }
 
-.triangle {
-    margin-left: 65%;
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 20px solid #fff;
-    animation: 2s linear 0 1 showArrow;
-    padding-bottom: .3rem;
-}
-
 #speech p {
-    padding: .2rem;
+    padding: .5rem 0;
     margin: auto;
     text-align: center;
     width: 75%;
@@ -243,13 +232,43 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
     margin: 0 auto;
 }
 
-.body-instruction h1 {
+.body-instruction h4 {
     color: #c61c1c;
+    font-size: .9rem;
+    letter-spacing: .3em;
+}
+
+.body-instruction h2 {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.w-70 {
+    font-size: 1.1rem;
+    width: 70%;
+    margin: auto;
+}
+
+.hide-span {
+    color: transparent;
 }
 
 .steps-list {
     margin: 0 auto;
     width: 95%;
+}
+
+.steps-list h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: .2rem;
+    letter-spacing: .3em;
+}
+
+.steps-list p {
+    font-size: .9rem;
+
 }
 
 footer {
@@ -258,6 +277,12 @@ footer {
     right: 0;
     top: 0;
     width: 100%;
+}
+
+.foot-h4 {
+    color: #6e9fce;
+    margin-left: .5em;
+    font-weight: bold;
 }
 
 .footer-newsletter {
@@ -285,7 +310,7 @@ footer {
 }
 
 .card-list {
-    margin: 2% auto;
+    margin: 5% auto;
     background-color: #fff;
     height: 200px;
     box-shadow: 0 2px 2px 0 #eee;
@@ -293,7 +318,7 @@ footer {
 
 .card-list h3 {
     width: 70%;
-    margin: 0 auto;
+    margin: .5% auto;
     font-size: 1.3em;
 }
 
@@ -305,8 +330,8 @@ footer {
 }
 
 .card-list img {
-    height: 50px;
-    width: 57px;
+    height: 60px;
+    width: 101px;
     margin: 0 auto;
     padding: 3%;
 }
@@ -422,25 +447,25 @@ footer {
 
     25% {
         height: 25%;
-        width: 25%;
+        width: 35%;
         font-size: .4rem;
         color: transparent;
     }
 
     50% {
         height: 50%;
-        width: 50%;
+        width: 52%;
         font-size: .6rem;
     }
 
     75% {
-        height: 75%;
-        width: 75%;
+        height: 65%;
+        width: 65%;
     }
 
     100% {
         height: 100%;
-        width: 100%;
+        width: 70%;
     }
 }
 
