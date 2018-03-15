@@ -36,6 +36,11 @@ hr {
     margin: 0 auto;
 }
 
+.logos {
+    max-width: 30%;
+    margin: .5em auto;
+}
+
 .logo-font {
     font-family: 'Code Bold Regular', monospace;
 }
@@ -73,7 +78,8 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
 
 .navbar-brand {
     position: relative;
-    top: -55px;
+    top: -50px;
+    font-size: 3rem;
 }
 
 .body-content {
@@ -245,7 +251,7 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
 }
 
 .w-70 {
-    font-size: 1.1rem;
+    /*font-size: 1.1rem;*/
     width: 70%;
     margin: auto;
 }
@@ -312,7 +318,7 @@ footer {
 .card-list {
     margin: 5% auto;
     background-color: #fff;
-    height: 200px;
+    height: 300px;
     box-shadow: 0 2px 2px 0 #eee;
 }
 
@@ -330,8 +336,8 @@ footer {
 }
 
 .card-list img {
-    height: 60px;
-    width: 101px;
+    max-width: 100%;
+    height: auto;
     margin: 0 auto;
     padding: 3%;
 }
@@ -353,7 +359,8 @@ footer {
 }
 
 .foot-brand {
-    padding-top: 3em;
+    font-size: 3rem;
+    padding-top: 2em;
     margin: 0 auto;
     color: #fff;
 }
@@ -434,6 +441,14 @@ footer {
 
     .search-box {
         margin-left: 70px;
+    }
+
+    .footer-links {
+        text-align: center;
+    }
+
+    .foot-brand {
+        padding-bottom: .5em;
     }
 }
 
