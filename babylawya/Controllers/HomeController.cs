@@ -16,6 +16,11 @@ namespace babylawya.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
         public IActionResult PersonalAndFamily()
         {
             ViewData["Message"] = "Personal and Family.";
@@ -41,6 +46,11 @@ namespace babylawya.Controllers
         {
             ViewData["Message"] = "How it Works.";
 
+            return View();
+        }
+
+        public IActionResult Press()
+        {
             return View();
         }
 

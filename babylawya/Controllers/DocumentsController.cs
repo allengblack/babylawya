@@ -1,6 +1,7 @@
 ﻿using babylawya.Data;
 using babylawya.Models.DocumentViewModels;
 using babylawya.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,6 +13,7 @@ using static babylawya.Constants;
 
 namespace babylawya.Controllers
 {
+    [Authorize]
     public class DocumentsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -140,6 +142,7 @@ namespace babylawya.Controllers
 
         }
 
+        [AllowAnonymous]
         public IActionResult Search(string searchString)
         {
             if (ModelState.IsValid)
@@ -163,6 +166,7 @@ namespace babylawya.Controllers
             return Content("Unable to find document matching keywords.");
         }
 
+        [AllowAnonymous]
         public IActionResult SearchResult(List<Guid> documentIds)
         {
             var docs = new List<Document>();

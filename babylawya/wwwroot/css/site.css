@@ -92,6 +92,11 @@ nav.navbar-nav.navbar-right.nav-link > li:nth-child(1) {
     background-color: #5a8cef;
 }
 
+.support-page {
+    line-height: 2em;
+    padding: 2% 0 5%;
+}
+
 .search-box {
     margin: 50px auto 0;
     margin-left: 100px;
@@ -316,6 +321,7 @@ footer {
 }
 
 .card-list {
+    padding-top: 40px;
     margin: 5% auto;
     background-color: #fff;
     height: 300px;
@@ -327,6 +333,11 @@ footer {
     margin: .5% auto;
     font-size: 1.3em;
 }
+
+/*.card-holder {
+    position: relative;
+    top: 10%;
+}*/
 
 .card-list p {
     width: 70%;
@@ -449,6 +460,11 @@ footer {
 
     .foot-brand {
         padding-bottom: .5em;
+    }
+
+    .card-list {
+        font-size: 12px;
+        height: 250px;
     }
 }
 
