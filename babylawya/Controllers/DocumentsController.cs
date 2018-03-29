@@ -88,24 +88,6 @@ namespace babylawya.Controllers
             return File(memory, GetContentType(path), Path.GetFileName(path));
         }
 
-        // GET: Documents/Details/5
-        public async Task<IActionResult> Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var document = await _context.Documents
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (document == null)
-            {
-                return NotFound();
-            }
-
-            return View(document);
-        }
-
         //GET: Documents/Upload
         public IActionResult Upload()
         {
@@ -183,11 +165,10 @@ namespace babylawya.Controllers
         }
 
         #region PrivateMethods
-
-        private bool DocumentExists(Guid id)
-        {
-            return _context.Documents.Any(e => e.Id == id);
-        }
+        //private bool DocumentExists(Guid id)
+        //{
+        //    return _context.Documents.Any(e => e.Id == id);
+        //}
 
         private string GetContentType(string path)
         {
@@ -213,7 +194,6 @@ namespace babylawya.Controllers
                 {".csv", "text/csv"}
             };
         }
-
         #endregion
     }
 }

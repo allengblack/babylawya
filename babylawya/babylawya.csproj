@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-babylawya-163A2D43-BB7A-4F03-96E0-628517312258</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\baby-lawya - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\babylawya - Web Deploy.pubxml" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
@@ -20,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
 </Project>
