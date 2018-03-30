@@ -23,7 +23,7 @@ namespace babylawya
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           var connectionString = Configuration.GetConnectionString(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production" ? "Azure" : "HomePC");
+           var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
