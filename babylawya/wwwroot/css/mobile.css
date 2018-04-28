@@ -3,93 +3,75 @@
         background-color: #5a8cef;
         padding: 30px 0 0;
     }
-
     .home-header-wrapper {
         height: auto;
     }
-
     .navbar-brand img {
         height: 15px;
     }
-
-    .navbar-nav > li {
+    .navbar-nav>li {
         display: inline-block;
     }
-
     .header-line {
         left: -15px;
         right: -15px;
     }
-
     .legal-wrapper {
         position: relative;
         top: 0;
         transform: none;
     }
-
     h1.header-text {
         font-size: 30px;
         line-height: 36px;
         margin-bottom: 15px;
     }
-
     form.navbar-form.navbar-left {
         margin: 0;
         border: none;
-        box-shadow: none;
+        box-shadow:none;
     }
 
     .navbar-form .form-group, .navbar-form .btn-default {
         display: inline-block;
     }
-
     .navbar-form .form-control {
         width: 165px;
         display: inline-block;
     }
-
     .home-header-wrapper .img-wrapper {
         position: relative;
         top: 0;
         transform: none;
     }
-
     .home-header-wrapper .speech {
         width: 270px;
         margin-top: 30px;
         font-size: 14px;
     }
-
     .speech-img {
         height: 200px;
     }
-
     .home-header-wrapper .navbar-nav {
         margin: 0;
         text-align: right;
     }
-
-        .home-header-wrapper .navbar-nav li a {
-            text-decoration: underline;
-        }
-
-    .home-header-wrapper .nav > li > a {
+    .home-header-wrapper .navbar-nav li a {
+        text-decoration: underline;
+    }
+    .home-header-wrapper .nav>li>a {
         padding: 10px;
     }
-
     .navbar-default .navbar-toggle .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
         background-color: #4475d7;
     }
-
     .navbar-default .navbar-toggle {
         margin-right: 0;
         margin-left: 15px;
     }
-
-        .navbar-default .navbar-toggle .icon-bar {
-            background-color: #fff;
-        }
-
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #fff;
+    }
     .step-list {
         text-align: center;
         width: 100%;
@@ -98,20 +80,16 @@
         padding: 0 15px;
         height: 80px;
     }
-
-        .step-list p {
-            font-size: 12px;
-            line-height: 18px;
-        }
-
+    .step-list p {
+        font-size: 12px;
+        line-height: 18px;
+    }
     .middle-content .desc {
         width: 100%;
     }
-
     .category-wrapper .desc {
         width: 100%;
     }
-
     .footer-info p {
         width: 100%;
         text-align: center;
@@ -123,13 +101,11 @@
         background-color: #5a8cef;
         padding: 45px 0 0;
     }
-
-        .header-wrapper .navbar-nav.navbar-right {
-            position: absolute;
-            right: -15px;
-            top: -45px;
-        }
-
+    .header-wrapper .navbar-header .navbar-nav.navbar-right {
+        position: absolute;
+        right: -15px;
+        top: -45px;
+    }
     .home-header-wrapper .container {
         padding: 0;
     }
@@ -140,9 +116,15 @@
     .how-it-work-wrapper .abt-card {
         width: 100%;
     }
-
-        .how-it-work-wrapper .abt-card .btn-lg {
-            width: 100%;
-            vertical-align: bottom;
-        }
+    .how-it-work-wrapper .abt-card .btn-lg {
+        width: 100%;
+        vertical-align: bottom;
+    }
+    #bs-example-navbar-collapse-1 {
+        padding-left: 5px;
+    }
+    #bs-example-navbar-collapse-1 .navbar-nav>li>a {
+        padding: 10px;
+        text-decoration: underline;
+    }
 }

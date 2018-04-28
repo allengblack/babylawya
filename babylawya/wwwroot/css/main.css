@@ -20,9 +20,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .home-header-wrapper .img-wrapper {
     position: absolute;
-    top: 100vh;
+    top: 70vh;
     transform: translateY(-126.9%);
 }
+.home-header-wrapper .img-wrapper video {
+    box-shadow: 20px 20px rgba(0,0,0,0.5);
+}
+
 .container-fluid>.navbar-header {
     display: block;
     float: none;

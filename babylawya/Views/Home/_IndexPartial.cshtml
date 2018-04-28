@@ -2,13 +2,13 @@
 <div class="container-fluid home-header-wrapper">
     <div class="container">
         <div class="row">
-            <div class="col-sm-7">
+            <div class="col-sm-6">
                 <div class="legal-wrapper">
                     <h1 class="header-text">
                         LEGAL MATTERS
                         <br /> MADE EASY
                     </h1>
-                    
+
                     @using (Html.BeginForm("Search", "Documents", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
                     {
                         <div class="form-group">
@@ -20,16 +20,21 @@
                     }
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-6">
                 <div class="img-wrapper">
-                    <div class="speech">
-                        <p>
-                            Hi, there. My name is Kone.
-                            <br /> Welcome to Babylawya.
-                            <br />Thanks for visiting.
-                        </p>
-                    </div>
-                    <img src="~/images/babylawya.png" class="img-responsive speech-img">
+                    @*<div class="img-wrapper">
+                            <div class="speech">
+                                <p>
+                                    Hi, there. My name is Kone.
+                                    <br /> Welcome to Babylawya.
+                                    <br />Thanks for visiting.
+                                </p>
+                            </div>
+                            <img src="~/images/babylawya.png" class="img-responsive speech-img">
+                        </div>*@
+                    <video autoplay muted loop id="myVideo" class="img-responsive speech-img">
+                        <source src="~/vids/babylawya_intro.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </div>
